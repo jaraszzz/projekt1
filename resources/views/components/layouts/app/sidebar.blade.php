@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
+        <!--OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
         @include('partials.head')
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
@@ -15,6 +16,11 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     <flux:navlist.item icon="book-open-text" :href="route('home')"  wire:navigate>{{ __('Form') }}</flux:navlist.item>
+                </flux:navlist.group>
+
+                <flux:navlist.group :heading="__('Admin')" class="grid">
+                    <flux:navlist.item icon="shield" :href="route('newuser')" wire:navigate>{{ __('Add User') }}</flux:navlist.item>
+                
                 </flux:navlist.group>
             </flux:navlist>
 

@@ -1,37 +1,40 @@
 <x-layouts.app :title="__('Dashboard')">
 <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <h2 class="text-center">Number of users</h2>
-                {{$uzytkownicy->count()}}
+            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 flex flex-col items-center justify-center">
+                <h2 class="text-center mb-2">Number of users</h2>
+                <div class="text-4xl font-bold">
+                    {{$uzytkownicy->count()}}
+                </div>
             </div>
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            
+            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 flex flex-col items-center justify-center">
                 <h2 class="text-center">Last added user</h2>
-                <table>
-                    <tbody>
-                            <tr>
-                                <th>
-                                    {{$uzytkownik1->name}}  
-                                </th>
-                                <td>
-                                    {{$uzytkownik1->email}}
-                                </td>
-                            </tr>
-                    </tbody>
-                </table>
-
+                <div class="text-4xl font-bold">
+                    <table>
+                        <tbody>
+                                <tr>
+                                    <th>
+                                        {{$uzytkownik1->name}}  
+                                    </th>
+                                    <td>
+                                        {{$uzytkownik1->email}}
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 flex flex-col items-center justify-center">
                 <h2 class="text-center">Users added last week</h2>
                 {{$users_last_week}}
 
             </div>
         </div>
-        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative rounded-xl border border-neutral-200 dark:border-neutral-700 ">
             <h1 class="text-center text-6xl font-bold text-blue-500">Uzytkownicy</h1>
-            
             <div class="overflow-y-auto max-h-96">
-                <table class="table-auto w-full">
+                <table class="table-auto w-full ">
                     <thead>
                         <tr class="border-b border-neutral-300 dark:border-neutral-600">
                             <th class="text-left py-2">ID</th>
@@ -42,17 +45,17 @@
                     </thead>
                     <tbody>
                         @foreach($uzytkownicy as $uzytkownik)
-                            <tr class="border-b border-neutral-200 dark:border-neutral-700">    
-                                <td class="py-4">
+                            <tr class="border-b border-neutral-200 dark:border-neutral-700 ">    
+                                <td class="py-4 items-center ">
                                     {{$uzytkownik->id}}
                                 </td>
-                                <td class="py-4 font-semibold">
+                                <td class="py-4 font-semibold items-center">
                                     {{$uzytkownik->name}}
                                 </td>
-                                <td class="py-4">
+                                <td class="py-4 items-center">
                                     {{$uzytkownik->email}}
                                 </td> 
-                                <td class="py-4">
+                                <td class="py-4 items-center">
                                     {{$uzytkownik->created_at}}
                                 </td> 
                             </tr>
@@ -62,7 +65,7 @@
             </div>
         </div>
         
-        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative rounded-xl border border-neutral-200 dark:border-neutral-700">
             <h1 class="text-center text-6xl font-bold text-blue-500 ">Rejestr wejsc i wyjsc</h1>
             <table class="table-auto w-full">
                 <thead>
@@ -112,7 +115,7 @@
                                 {{$rejestrr->imie_i_nazwisko_pracownik}}
                             </td>
                             <td class="py-4">
-                                {{$rejestrr->ent}}
+                                {{$rejestrr->entrance}}
                             </td>
                         </tr>
                     @endforeach

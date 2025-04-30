@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Models\Rejestr;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\RejestrController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome', ['name' => 'James']);
@@ -32,6 +33,10 @@ Route::view('dashboard', 'dashboard',compact('uzytkownicy','uzytkownik1','users_
     ->name('dashboard');
 
 
+Route::view('newuser','newuser',compact('uzytkownicy'))
+    ->middleware(['auth', 'verified'])
+    ->name('newuser');
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
@@ -42,6 +47,8 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::post('dodajrejestr',[RejestrController::class,'store']);
+
+Route::post('dodajuser',[UserController::class,'store']);
 
 
 require __DIR__.'/auth.php';
